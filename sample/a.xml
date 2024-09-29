@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bf>
+<mvr/>
+<inc/><inc/><inc/><inc/>
+<loop>
+  <dec/>
+  <mvr/>
+  <inc/><inc/><inc/><inc/>
+  <loop>
+    <dec/>
+    <mvl/><mvl/>
+    <inc/><inc/><inc/><inc/>
+    <mvr/><mvr/>
+    <end/>
+  </loop>
+  <mvl/>
+  <end/>
+</loop>
+<mvl/>
+<inc/>
+<print/>
+</bf>
