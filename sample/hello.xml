@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  code:
+    +++++++++[>++++++++>+++++++++++>+++++<<<-]>.>++.+++++++..+++.>-.- - - - - - - - - - - -.
+    <++++++++.- - - - - - - -.+++.- - - - - -.- - - - - - - -.>+.
+  output:
+    Hello, world!
+-->
+<bf>
+  <inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/>
+  <loop>
+    <right/>
+    <inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/>
+    <right/>
+    <inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/>
+    <right/>
+    <inc/><inc/><inc/><inc/><inc/>
+    <left/><left/><left/>
+    <dec/>
+    <end/>
+  </loop>
+  <right/>
+  <print/>
+  <right/>
+  <inc/><inc/>
+  <print/>
+  <inc/><inc/><inc/><inc/><inc/><inc/><inc/>
+  <print/>
+  <print/>
+  <inc/><inc/><inc/>
+  <print/>
+  <right/>
+  <dec/>
+  <print/>
+  <dec/><dec/><dec/><dec/><dec/><dec/><dec/><dec/><dec/><dec/><dec/><dec/>
+  <print/>
+  <left/>
+  <inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/>
+  <print/>
+  <dec/><dec/><dec/><dec/><dec/><dec/><dec/><dec/>
+  <print/>
+  <inc/><inc/><inc/>
+  <print/>
+  <dec/><dec/><dec/><dec/><dec/><dec/>
+  <print/>
+  <dec/><dec/><dec/><dec/><dec/><dec/><dec/><dec/>
+  <print/>
+  <right/>
+  <inc/>
+  <print/>
+</bf>

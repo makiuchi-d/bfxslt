@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                version="3.0">
-  <xsl:output method="html" encoding="utf-8"/>
+                version="2.0">
+  <xsl:output method="text" encoding="utf-8"/>
 
   <xsl:template match="/bf">
     <xsl:apply-templates select="*[1]">
@@ -11,8 +11,8 @@
     </xsl:apply-templates>
   </xsl:template>
 
-  <!-- ">" move ptr right -->
-  <xsl:template match="mvr">
+  <!-- ">" move ptr to the right -->
+  <xsl:template match="right">
     <xsl:param name="ptr"/>
     <xsl:param name="mem"/>
 
@@ -22,8 +22,8 @@
     </xsl:apply-templates>
   </xsl:template>
 
-  <!-- "<" move ptr left -->
-  <xsl:template match="mvl">
+  <!-- "<" move ptr to the left -->
+  <xsl:template match="left">
     <xsl:param name="ptr"/>
     <xsl:param name="mem"/>
 
