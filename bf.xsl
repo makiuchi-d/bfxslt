@@ -5,9 +5,11 @@
   <xsl:output method="text" encoding="utf-8"/>
 
   <xsl:template match="/bf">
-    <xsl:apply-templates select="*[1]">
+    <xsl:variable name="input" select="input"/>
+    <xsl:apply-templates select="code/*[1]">
       <xsl:with-param name="ptr" select="0"/>
       <xsl:with-param name="mem"><_0>0</_0></xsl:with-param>
+      <xsl:with-param name="input" select="$input"/>
     </xsl:apply-templates>
   </xsl:template>
 
@@ -15,10 +17,12 @@
   <xsl:template match="right">
     <xsl:param name="ptr"/>
     <xsl:param name="mem"/>
+    <xsl:param name="input"/>
 
     <xsl:apply-templates select="following-sibling::*[1]">
       <xsl:with-param name="ptr" select="$ptr + 1"/>
       <xsl:with-param name="mem" select="$mem"/>
+      <xsl:with-param name="input" select="$input"/>
     </xsl:apply-templates>
   </xsl:template>
 
@@ -26,10 +30,12 @@
   <xsl:template match="left">
     <xsl:param name="ptr"/>
     <xsl:param name="mem"/>
+    <xsl:param name="input"/>
 
     <xsl:apply-templates select="following-sibling::*[1]">
       <xsl:with-param name="ptr" select="$ptr - 1"/>
       <xsl:with-param name="mem" select="$mem"/>
+      <xsl:with-param name="input" select="$input"/>
     </xsl:apply-templates>
   </xsl:template>
 
@@ -37,6 +43,7 @@
   <xsl:template match="inc">
     <xsl:param name="ptr" />
     <xsl:param name="mem"/>
+    <xsl:param name="input"/>
 
     <xsl:variable name="key" select="concat('_', $ptr)"/>
     <xsl:variable name="val" select="sum(exsl:node-set($mem)/*[name()=$key])"/>
@@ -52,6 +59,7 @@
     <xsl:apply-templates select="following-sibling::*[1]">
       <xsl:with-param name="ptr" select="$ptr"/>
       <xsl:with-param name="mem" select="$mem"/>
+      <xsl:with-param name="input" select="$input"/>
     </xsl:apply-templates>
   </xsl:template>
 
@@ -59,6 +67,7 @@
   <xsl:template match="dec">
     <xsl:param name="ptr"/>
     <xsl:param name="mem"/>
+    <xsl:param name="input"/>
 
     <xsl:variable name="key" select="concat('_', $ptr)"/>
     <xsl:variable name="val" select="sum(exsl:node-set($mem)/*[name()=$key])"/>
@@ -74,6 +83,7 @@
     <xsl:apply-templates select="following-sibling::*[1]">
       <xsl:with-param name="ptr" select="$ptr"/>
       <xsl:with-param name="mem" select="$mem"/>
+      <xsl:with-param name="input" select="$input"/>
     </xsl:apply-templates>
   </xsl:template>
 
@@ -81,6 +91,7 @@
   <xsl:template match="loop">
     <xsl:param name="ptr"/>
     <xsl:param name="mem"/>
+    <xsl:param name="input"/>
 
     <xsl:variable name="key" select="concat('_', $ptr)"/>
     <xsl:variable name="val" select="sum(exsl:node-set($mem)/*[name()=$key])"/>
@@ -90,12 +101,14 @@
         <xsl:apply-templates select="*[1]">
           <xsl:with-param name="ptr" select="$ptr"/>
           <xsl:with-param name="mem" select="$mem"/>
+          <xsl:with-param name="input" select="$input"/>
         </xsl:apply-templates>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="following-sibling::*[1]">
           <xsl:with-param name="ptr" select="$ptr"/>
           <xsl:with-param name="mem" select="$mem"/>
+          <xsl:with-param name="input" select="$input"/>
         </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>
@@ -105,10 +118,12 @@
   <xsl:template match="end">
     <xsl:param name="ptr"/>
     <xsl:param name="mem"/>
+    <xsl:param name="input"/>
 
     <xsl:apply-templates select="parent::node()">
       <xsl:with-param name="ptr" select="$ptr"/>
       <xsl:with-param name="mem" select="$mem"/>
+      <xsl:with-param name="input" select="$input"/>
     </xsl:apply-templates>
   </xsl:template>
 
@@ -116,6 +131,7 @@
   <xsl:template match="print">
     <xsl:param name="ptr"/>
     <xsl:param name="mem"/>
+    <xsl:param name="input"/>
 
     <xsl:variable name="key" select="concat('_', $ptr)"/>
     <xsl:variable name="val" select="sum(exsl:node-set($mem)/*[name()=$key])"/>
@@ -225,6 +241,7 @@
     <xsl:apply-templates select="following-sibling::*[1]">
       <xsl:with-param name="ptr" select="$ptr"/>
       <xsl:with-param name="mem" select="$mem"/>
+      <xsl:with-param name="input" select="$input"/>
     </xsl:apply-templates>
   </xsl:template>
 

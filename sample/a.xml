@@ -5,23 +5,25 @@
   output: A
 -->
 <bf>
-<right/>
-<inc/><inc/><inc/><inc/>
-<loop>
-  <dec/>
-  <right/>
-  <inc/><inc/><inc/><inc/>
-  <loop>
-    <dec/>
-    <left/><left/>
+  <code>
+    <right/>
     <inc/><inc/><inc/><inc/>
-    <right/><right/>
-    <end/>
-  </loop>
-  <left/>
-  <end/>
-</loop>
-<left/>
-<inc/>
-<print/>
+    <loop>
+      <dec/>
+      <right/>
+      <inc/><inc/><inc/><inc/>
+      <loop>
+        <dec/>
+        <left/><left/>
+        <inc/><inc/><inc/><inc/>
+        <right/><right/>
+        <end/>
+      </loop>
+      <left/>
+      <end/>
+    </loop>
+    <left/>
+    <inc/>
+    <print/>
+  </code>
 </bf>
