@@ -42,12 +42,11 @@
     <xsl:variable name="val" select="sum(exsl:node-set($mem)/*[name()=$key])"/>
 
     <xsl:variable name="mem">
-      <xsl:for-each select="exsl:node-set($mem)/*[name()!=$key]">
-        <xsl:copy-of select="."/>
-      </xsl:for-each>
-      <xsl:element name="{$key}">
-        <xsl:value-of select="$val + 1"/>
-      </xsl:element>
+      <xsl:call-template name="write-val">
+        <xsl:with-param name="mem" select="$mem"/>
+        <xsl:with-param name="key" select="$key"/>
+        <xsl:with-param name="val" select="$val + 1"/>
+      </xsl:call-template>
     </xsl:variable>
 
     <xsl:apply-templates select="following-sibling::*[1]">
@@ -65,12 +64,11 @@
     <xsl:variable name="val" select="sum(exsl:node-set($mem)/*[name()=$key])"/>
 
     <xsl:variable name="mem">
-      <xsl:for-each select="exsl:node-set($mem)/*[name()!=$key]">
-        <xsl:copy-of select="."/>
-      </xsl:for-each>
-      <xsl:element name="{$key}">
-        <xsl:value-of select="$val - 1"/>
-      </xsl:element>
+      <xsl:call-template name="write-val">
+        <xsl:with-param name="mem" select="$mem"/>
+        <xsl:with-param name="key" select="$key"/>
+        <xsl:with-param name="val" select="$val - 1"/>
+      </xsl:call-template>
     </xsl:variable>
 
     <xsl:apply-templates select="following-sibling::*[1]">
@@ -228,6 +226,19 @@
       <xsl:with-param name="ptr" select="$ptr"/>
       <xsl:with-param name="mem" select="$mem"/>
     </xsl:apply-templates>
+  </xsl:template>
+
+  <xsl:template name="write-val">
+    <xsl:param name="mem"/>
+    <xsl:param name="key"/>
+    <xsl:param name="val"/>
+
+    <xsl:for-each select="exsl:node-set($mem)/*[name()!=$key]">
+      <xsl:copy-of select="."/>
+    </xsl:for-each>
+    <xsl:element name="{$key}">
+      <xsl:value-of select="$val"/>
+    </xsl:element>
   </xsl:template>
 
 </xsl:stylesheet>
