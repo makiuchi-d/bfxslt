@@ -8,6 +8,7 @@
     Hello, world!
 -->
 <bf>
+  <input></input>
   <code>
     <inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/>
     <loop>

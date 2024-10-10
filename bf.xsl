@@ -245,6 +245,154 @@
     </xsl:apply-templates>
   </xsl:template>
 
+  <!-- "," read -->
+  <xsl:template match="read">
+    <xsl:param name="ptr"/>
+    <xsl:param name="mem"/>
+    <xsl:param name="input"/>
+
+    <xsl:variable name="key" select="concat('_', $ptr)"/>
+
+    <xsl:choose>
+      <xsl:when test="string-length($mem)=0">
+        <xsl:apply-templates select="following-sibling::*[1]">
+          <xsl:with-param name="ptr" select="$ptr"/>
+          <xsl:with-param name="mem">
+            <xsl:call-template name="write-val">
+              <xsl:with-param name="mem" select="$mem"/>
+              <xsl:with-param name="key" select="$key"/>
+              <xsl:with-param name="val" select="255"/>
+            </xsl:call-template>
+          </xsl:with-param>
+          <xsl:with-param name="input" select="$input"/>
+        </xsl:apply-templates>
+      </xsl:when>
+
+      <xsl:otherwise>
+        <xsl:variable name="c" select="substring($input, 1, 1)"/>
+        <xsl:variable name="input" select="substring($input, 2)"/>
+
+        <xsl:variable name="val">
+          <xsl:choose>
+            <xsl:when test="$c='&#9;'">9</xsl:when>
+            <xsl:when test="$c='&#10;'">10</xsl:when>
+            <xsl:when test="$c='&#13;'">13</xsl:when>
+            <xsl:when test="$c=' '">32</xsl:when>
+            <xsl:when test="$c='!'">33</xsl:when>
+            <xsl:when test="$c='&quot;'">34</xsl:when>
+            <xsl:when test="$c='#'">35</xsl:when>
+            <xsl:when test="$c='$'">36</xsl:when>
+            <xsl:when test="$c='%'">37</xsl:when>
+            <xsl:when test="$c='&amp;'">38</xsl:when>
+            <xsl:when test='$c="&apos;"'>39</xsl:when>
+            <xsl:when test="$c='('">40</xsl:when>
+            <xsl:when test="$c=')'">41</xsl:when>
+            <xsl:when test="$c='*'">42</xsl:when>
+            <xsl:when test="$c='+'">43</xsl:when>
+            <xsl:when test="$c=','">44</xsl:when>
+            <xsl:when test="$c='-'">45</xsl:when>
+            <xsl:when test="$c='.'">46</xsl:when>
+            <xsl:when test="$c='/'">47</xsl:when>
+            <xsl:when test="$c='0'">48</xsl:when>
+            <xsl:when test="$c='1'">49</xsl:when>
+            <xsl:when test="$c='2'">50</xsl:when>
+            <xsl:when test="$c='3'">51</xsl:when>
+            <xsl:when test="$c='4'">52</xsl:when>
+            <xsl:when test="$c='5'">53</xsl:when>
+            <xsl:when test="$c='6'">54</xsl:when>
+            <xsl:when test="$c='7'">55</xsl:when>
+            <xsl:when test="$c='8'">56</xsl:when>
+            <xsl:when test="$c='9'">57</xsl:when>
+            <xsl:when test="$c=':'">58</xsl:when>
+            <xsl:when test="$c=';'">59</xsl:when>
+            <xsl:when test="$c='&lt;'">60</xsl:when>
+            <xsl:when test="$c='='">61</xsl:when>
+            <xsl:when test="$c='&gt;'">62</xsl:when>
+            <xsl:when test="$c='?'">63</xsl:when>
+            <xsl:when test="$c='@'">64</xsl:when>
+            <xsl:when test="$c='A'">65</xsl:when>
+            <xsl:when test="$c='B'">66</xsl:when>
+            <xsl:when test="$c='C'">67</xsl:when>
+            <xsl:when test="$c='D'">68</xsl:when>
+            <xsl:when test="$c='E'">69</xsl:when>
+            <xsl:when test="$c='F'">70</xsl:when>
+            <xsl:when test="$c='G'">71</xsl:when>
+            <xsl:when test="$c='H'">72</xsl:when>
+            <xsl:when test="$c='I'">73</xsl:when>
+            <xsl:when test="$c='J'">74</xsl:when>
+            <xsl:when test="$c='K'">75</xsl:when>
+            <xsl:when test="$c='L'">76</xsl:when>
+            <xsl:when test="$c='M'">77</xsl:when>
+            <xsl:when test="$c='N'">78</xsl:when>
+            <xsl:when test="$c='O'">79</xsl:when>
+            <xsl:when test="$c='P'">80</xsl:when>
+            <xsl:when test="$c='Q'">81</xsl:when>
+            <xsl:when test="$c='R'">82</xsl:when>
+            <xsl:when test="$c='S'">83</xsl:when>
+            <xsl:when test="$c='T'">84</xsl:when>
+            <xsl:when test="$c='U'">85</xsl:when>
+            <xsl:when test="$c='V'">86</xsl:when>
+            <xsl:when test="$c='W'">87</xsl:when>
+            <xsl:when test="$c='X'">88</xsl:when>
+            <xsl:when test="$c='Y'">89</xsl:when>
+            <xsl:when test="$c='Z'">90</xsl:when>
+            <xsl:when test="$c='['">91</xsl:when>
+            <xsl:when test="$c='\'">92</xsl:when>
+            <xsl:when test="$c=']'">93</xsl:when>
+            <xsl:when test="$c='^'">94</xsl:when>
+            <xsl:when test="$c='_'">95</xsl:when>
+            <xsl:when test="$c='`'">96</xsl:when>
+            <xsl:when test="$c='a'">97</xsl:when>
+            <xsl:when test="$c='b'">98</xsl:when>
+            <xsl:when test="$c='c'">99</xsl:when>
+            <xsl:when test="$c='d'">100</xsl:when>
+            <xsl:when test="$c='e'">101</xsl:when>
+            <xsl:when test="$c='f'">102</xsl:when>
+            <xsl:when test="$c='g'">103</xsl:when>
+            <xsl:when test="$c='h'">104</xsl:when>
+            <xsl:when test="$c='i'">105</xsl:when>
+            <xsl:when test="$c='j'">106</xsl:when>
+            <xsl:when test="$c='k'">107</xsl:when>
+            <xsl:when test="$c='l'">108</xsl:when>
+            <xsl:when test="$c='m'">109</xsl:when>
+            <xsl:when test="$c='n'">110</xsl:when>
+            <xsl:when test="$c='o'">111</xsl:when>
+            <xsl:when test="$c='p'">112</xsl:when>
+            <xsl:when test="$c='q'">113</xsl:when>
+            <xsl:when test="$c='r'">114</xsl:when>
+            <xsl:when test="$c='s'">115</xsl:when>
+            <xsl:when test="$c='t'">116</xsl:when>
+            <xsl:when test="$c='u'">117</xsl:when>
+            <xsl:when test="$c='v'">118</xsl:when>
+            <xsl:when test="$c='w'">119</xsl:when>
+            <xsl:when test="$c='x'">120</xsl:when>
+            <xsl:when test="$c='y'">121</xsl:when>
+            <xsl:when test="$c='z'">122</xsl:when>
+            <xsl:when test="$c='{'">123</xsl:when>
+            <xsl:when test="$c='|'">124</xsl:when>
+            <xsl:when test="$c='}'">125</xsl:when>
+            <xsl:when test="$c='~'">126</xsl:when>
+            <xsl:otherwise>255</xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+
+        <xsl:variable name="mem">
+          <xsl:call-template name="write-val">
+            <xsl:with-param name="mem" select="$mem"/>
+            <xsl:with-param name="key" select="$key"/>
+            <xsl:with-param name="val" select="$val"/>
+          </xsl:call-template>
+        </xsl:variable>
+
+        <xsl:apply-templates select="following-sibling::*[1]">
+          <xsl:with-param name="ptr" select="$ptr"/>
+          <xsl:with-param name="mem" select="$mem"/>
+          <xsl:with-param name="input" select="$input"/>
+        </xsl:apply-templates>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
   <xsl:template name="write-val">
     <xsl:param name="mem"/>
     <xsl:param name="key"/>
