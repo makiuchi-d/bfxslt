@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  code: https://gist.github.com/makiuchi-d/0f89dcf8d7387d89fa9bed19cfd55020
+  output: HELLO, WORLD!\n
+-->
+<bf>
+  <input>Hello, world!&#10;</input>
+  <code>
+    <right/><right/><right/><right/><right/><right/><right/><right/><right/><right/><inc/><right/><inc/><right/><inc/>
+    <left/><left/><left/><left/><left/><left/><left/><left/><left/><left/><left/><left/>
+
+    <right/>
+    <inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/>
+    <loop><dec/><left/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><right/><end/></loop>
+    <left/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/>
+
+    <right/><right/><read/>
+    
+    <loop><dec/><right/><right/><inc/><left/><left/><left/><inc/><left/><dec/><right/><right/><end/></loop>
+    <left/><left/>
+
+    <loop>
+
+      <right/><right/><right/><loop><dec/><end/></loop><left/>
+      <inc/><inc/><inc/><inc/><inc/><inc/>
+      <loop><dec/><right/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><left/><end/></loop>
+
+      <right/><right/><right/><loop><dec/><end/></loop>
+      <right/><loop><dec/><end/></loop><inc/><inc/><inc/><inc/><inc/><inc/><inc/>
+      <loop><dec/><left/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><right/><end/></loop>
+      <left/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/>
+
+      <right/><right/><loop><dec/><end/></loop><right/><loop><dec/><end/></loop><right/><loop><dec/><end/></loop>
+
+      <left/><left/><left/><left/>
+
+      <loop>
+        <loop><dec/><left/><end/></loop>
+        <right/><right/><right/><right/><inc/><right/><right/><right/><right/>
+        <loop><right/><end/></loop><left/><left/><left/><left/><left/><left/><left/><left/>
+        <end/>
+      </loop>
+
+      <right/><right/><right/>
+      <loop>
+        <loop><dec/><end/></loop>
+
+        <left/>
+        <loop>
+          <loop><dec/><end/></loop>
+
+          <left/><left/><left/><left/><left/>
+          <inc/><inc/><inc/><inc/><loop><dec/><left/><dec/><dec/><dec/><dec/><dec/><dec/><dec/><dec/><right/><end/></loop>
+          <right/><right/><right/><right/><right/>
+
+          <end/>
+        </loop>
+        <right/>
+        <end/>
+      </loop>
+
+      <left/><left/><left/><left/><left/><left/><left/><print/><left/>
+
+      <loop><dec/><end/></loop><right/><loop><dec/><end/></loop><right/><loop><dec/><end/></loop>
+      <right/><loop><dec/><end/></loop><right/><loop><dec/><end/></loop><left/><left/><left/><left/>
+
+      <right/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/>
+      <loop><dec/><left/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><right/><end/></loop>
+      <left/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/><inc/>
+
+      <right/><right/><read/>
+
+      <loop><dec/><right/><right/><inc/><left/><left/><left/><inc/><left/><dec/><right/><right/><end/></loop>
+      <left/><left/>
+
+      <end/>
+    </loop>
+  </code>
+</bf>

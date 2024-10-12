@@ -9,21 +9,14 @@
   <code>
     <inc/><inc/><inc/><inc/>
     <loop>
-      <dec/>
-      <right/>
-      <inc/><inc/><inc/><inc/>
+      <dec/><right/><inc/><inc/><inc/><inc/>
       <loop>
-        <dec/>
-        <right/>
-        <inc/><inc/><inc/><inc/>
-        <left/>
+        <dec/><right/><inc/><inc/><inc/><inc/><left/>
         <end/>
       </loop>
       <left/>
       <end/>
     </loop>
-    <right/><right/>
-    <inc/>
-    <print/>
+    <right/><right/><inc/><print/>
   </code>
 </bf>
