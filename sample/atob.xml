@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="../bf.xsl" ?>
 <!--
-  code: ,+.,+.
+  code: ++[->,+.<]
   input: Aa
   output: Bb
 -->
 <bf>
   <input>Aa</input>
   <code>
-    <read/><inc/><print/>
-    <read/><inc/><print/>
+    <inc/><inc/>
+    <loop>
+      <dec/><right/><read/><inc/><print/><left/>
+      <end/>
+    </loop>
   </code>
 </bf>
