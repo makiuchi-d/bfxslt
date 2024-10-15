@@ -254,7 +254,7 @@
     <xsl:variable name="key" select="concat('_', $ptr)"/>
 
     <xsl:choose>
-      <xsl:when test="string-length($mem)=0">
+      <xsl:when test="string-length($input)=0">
         <xsl:apply-templates select="following-sibling::*[1]">
           <xsl:with-param name="ptr" select="$ptr"/>
           <xsl:with-param name="mem">
